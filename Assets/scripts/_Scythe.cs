@@ -19,6 +19,8 @@ public class _Scythe : MonoBehaviour
     Vector3 worldPosition;
     public GameObject hook;
     public Animator anim;
+    public BoxCollider2D box;
+    public CircleCollider2D circle;
     
     // Start is called before the first frame update
     void Start()
@@ -40,7 +42,9 @@ public class _Scythe : MonoBehaviour
        {
         Instantiate(hook);
         hook.transform.position = worldPosition;
-        //this.collider.isTrigger = True;
+        box.isTrigger = false;
+        circle.isTrigger = false;
+        anim.applyRootMotion = true;
        }
        
     }
@@ -48,7 +52,9 @@ public class _Scythe : MonoBehaviour
     {
         rb.velocity = new Vector2(0, 0);
         anim.SetBool("isAction", false);
-        //this.collider.isTrigger = false;
+        box.isTrigger = true;
+        circle.isTrigger = true;
+        anim.applyRootMotion = false;
     }
     //else{rb.velocity = new Vector2(0, 0);}
     if(buffer)

@@ -860,7 +860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950722807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14820015, y: 2.256493, z: -10.005845}
+  m_LocalPosition: {x: -0.1482004, y: 2.256493, z: -10.005845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1037,7 +1037,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ab4f75a98f65e9d439d08806aba6fcc7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1065,6 +1065,8 @@ MonoBehaviour:
   damping: 0.2
   hook: {fileID: 9090999088942358213, guid: 65218163096f66a4ea2bd48bb6f7fdfe, type: 3}
   anim: {fileID: 1008545055}
+  box: {fileID: 1008545058}
+  circle: {fileID: 1008545059}
 --- !u!50 &1008545057
 Rigidbody2D:
   serializedVersion: 4
@@ -38022,7 +38024,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.78550726, y: 1}
+    m_SensorSize: {x: 2.368116, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -38039,7 +38041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339365016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14820015, y: 2.256493, z: -10.005845}
+  m_LocalPosition: {x: -0.1482004, y: 2.256493, z: -10.005845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
