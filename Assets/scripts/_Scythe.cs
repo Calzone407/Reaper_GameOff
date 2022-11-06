@@ -13,7 +13,12 @@ public class _Scythe : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private Vector2 targetVelocity;
     private bool buffer;
-    private float i;
+    private float i = 1;
+    private Vector2 _hitPoint;
+    private Vector3 direction;
+    Vector3 worldPosition;
+    public GameObject hook;
+    public Animator anim;
     
     // Start is called before the first frame update
     void Start()
@@ -24,39 +29,66 @@ public class _Scythe : MonoBehaviour
  void LateUpdate()
  {
     Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-    var worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);  
+    worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);  
 
     RaycastHit2D hit = Physics2D.Raycast(transform.position, worldPosition);
     
     if(Input.GetMouseButton(0))
     {
        buffer = true;
-       Debug.Log(buffer);
+       if(Input.GetMouseButtonDown(0))
+       {
+        Instantiate(hook);
+        hook.transform.position = worldPosition;
+        //this.collider.isTrigger = True;
+       }
+       
     }
     else if(!buffer)
     {
         rb.velocity = new Vector2(0, 0);
+        anim.SetBool("isAction", false);
+        //this.collider.isTrigger = false;
     }
     //else{rb.velocity = new Vector2(0, 0);}
-    while(buffer)
+    if(buffer)
     {
-        i += 1;
-            if(i <= 0)
-            {
-                buffer = false;
-            }
-        if(transform.position == worldPosition)
+        transform.parent = null;
+       
+        if(transform.position == hook.transform.position)
         {
             i = 0;
+            Debug.Log("i is = to 0");
         }
-        var direction = worldPosition - transform.position;
+
+         if(i <= 0)
+        {
+            buffer = false;
+            Debug.Log("Working!");
+            
+        }
+        
+        anim.SetBool("isAction", true);
+        direction = hook.transform.position - transform.position;
         direction = direction.normalized;
         targetVelocity = new Vector2(direction.x * speed, direction.y * speed);
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);
-        
+    }   
+ }
+
+ void OnTiggerEnter2D(Collision2D col)
+ {
+    if(col.gameObject.tag == "scytheHook")
+    {
+        Debug.Log("Hello World!");
     }
-    
-   
-    
+ }
+
+ void OnCollisionEnter2D(Collision2D col)
+ {
+    if(col.gameObject.tag == "Wall")
+    {
+        rb.velocity = new Vector2(0, 0);
+    }
  }
 }

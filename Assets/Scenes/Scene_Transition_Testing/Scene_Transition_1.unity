@@ -177,7 +177,7 @@ MonoBehaviour:
   m_ZDamping: 0
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.65
+  m_ScreenY: 0.76
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.08
   m_DeadZoneHeight: 0
@@ -323,7 +323,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.049805462, y: -0.047730237}
+  m_Offset: {x: -0.06135586, y: -0.047730237}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -334,7 +334,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.56835234, y: 0.9045395}
+  m_Size: {x: 0.54525155, y: 0.9045395}
   m_EdgeRadius: 0
 --- !u!50 &430221396
 Rigidbody2D:
@@ -417,7 +417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430221394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: -2.37, z: 0}
+  m_LocalPosition: {x: -1.664, y: -2.36, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -474,7 +474,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.056031138, y: -0.045655012}
+  m_Offset: {x: -0.07528183, y: -0.045655012}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -485,7 +485,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5725028, y: 0.90869}
+  m_Size: {x: 0.5340014, y: 0.90869}
   m_EdgeRadius: 0
 --- !u!95 &430221401
 Animator:
@@ -836,7 +836,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.46
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -860,7 +860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950722807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01579976, y: -0.13270724, z: -10.005845}
+  m_LocalPosition: {x: -0.14820015, y: 2.256493, z: -10.005845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -948,6 +948,8 @@ GameObject:
   - component: {fileID: 1008545055}
   - component: {fileID: 1008545056}
   - component: {fileID: 1008545057}
+  - component: {fileID: 1008545058}
+  - component: {fileID: 1008545059}
   m_Layer: 0
   m_Name: Scythe
   m_TagString: Untagged
@@ -963,7 +965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008545052}
   m_LocalRotation: {x: -0.008726465, y: -0, z: -0, w: 0.999962}
-  m_LocalPosition: {x: 0.42, y: -0.15, z: 0}
+  m_LocalPosition: {x: 0.236, y: -0.079, z: -0.004}
   m_LocalScale: {x: -0.6000001, y: 0.6001099, z: -0.99954325}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1061,6 +1063,8 @@ MonoBehaviour:
   floatHeight: 2
   moveForce: 2
   damping: 0.2
+  hook: {fileID: 9090999088942358213, guid: 65218163096f66a4ea2bd48bb6f7fdfe, type: 3}
+  anim: {fileID: 1008545055}
 --- !u!50 &1008545057
 Rigidbody2D:
   serializedVersion: 4
@@ -1082,6 +1086,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &1008545058
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008545052}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.19237179, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6152564, y: 1}
+  m_EdgeRadius: 0
+--- !u!58 &1008545059
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008545052}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.12526542, y: 0.022368139}
+  serializedVersion: 2
+  m_Radius: 0.39710355
 --- !u!1 &1040865174
 GameObject:
   m_ObjectHideFlags: 0
@@ -37969,14 +38015,14 @@ MonoBehaviour:
   m_Follow: {fileID: 430221398}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 7.46
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.368116, y: 1}
+    m_SensorSize: {x: 0.78550726, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -37993,7 +38039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339365016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01579976, y: -0.13270724, z: -10.005845}
+  m_LocalPosition: {x: -0.14820015, y: 2.256493, z: -10.005845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
