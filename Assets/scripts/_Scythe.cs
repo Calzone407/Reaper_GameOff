@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class _Scythe : MonoBehaviour
 {
-    public Transform trans;
+    public GameObject trans;
     public Rigidbody2D rb;
     public float speed, smoothTime;
     public float floatHeight;
@@ -13,14 +13,17 @@ public class _Scythe : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private Vector2 targetVelocity;
     private bool buffer;
+    private bool buffer2;
     private float i = 1;
     private Vector2 _hitPoint;
     private Vector3 direction;
     Vector3 worldPosition;
     public GameObject hook;
+    public GameObject scythePoint;
     public Animator anim;
     public BoxCollider2D box;
     public CircleCollider2D circle;
+    public GameObject player;
     
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,34 @@ public class _Scythe : MonoBehaviour
     }
 
  void LateUpdate()
+ {
+    scytheLaunch();
+
+ }
+
+ void OnTriggerEnter2D(Collider2D col)
+ {
+    if(col.gameObject.tag == "scytheHook")
+    {
+        Debug.Log("Hello World!");
+    }
+    if(col.gameObject.tag == "scythePoint")
+    {
+        //trans.parent = player;
+        Debug.Log("Wassup my tigga!");
+    }
+ }
+
+ void OnCollisionEnter2D(Collision2D col)
+ {
+    if(col.gameObject.tag == "Wall")
+    {
+        rb.velocity = new Vector2(0, 0);
+    }
+    
+ }
+
+ void scytheLaunch()
  {
     Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
     worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);  
@@ -50,11 +81,19 @@ public class _Scythe : MonoBehaviour
     }
     else if(!buffer)
     {
-        rb.velocity = new Vector2(0, 0);
+       // rb.velocity = new Vector2(0, 0);
         anim.SetBool("isAction", false);
         box.isTrigger = true;
         circle.isTrigger = true;
         anim.applyRootMotion = false;
+    }
+
+    if(Input.GetMouseButton(1))
+    {
+        buffer = true;
+        hook.transform.position = scythePoint.transform.position;
+        box.isTrigger = true;
+        circle.isTrigger = true;
     }
     //else{rb.velocity = new Vector2(0, 0);}
     if(buffer)
@@ -79,22 +118,9 @@ public class _Scythe : MonoBehaviour
         direction = direction.normalized;
         targetVelocity = new Vector2(direction.x * speed, direction.y * speed);
         rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);
-    }   
+    }
+
  }
 
- void OnTiggerEnter2D(Collision2D col)
- {
-    if(col.gameObject.tag == "scytheHook")
-    {
-        Debug.Log("Hello World!");
-    }
- }
-
- void OnCollisionEnter2D(Collision2D col)
- {
-    if(col.gameObject.tag == "Wall")
-    {
-        rb.velocity = new Vector2(0, 0);
-    }
- }
+ 
 }
