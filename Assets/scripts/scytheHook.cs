@@ -9,7 +9,13 @@ public class scytheHook : MonoBehaviour
     {
         
     }
-
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "scythe")
+        {
+            Destroy(this.gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {

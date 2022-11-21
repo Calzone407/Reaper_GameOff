@@ -42,6 +42,9 @@ public class Player : MonoBehaviour
     private bool wasMovingRight;
     [Space]
     [Header ("Misc")]
+    public _Scythe scythe;
+    public GameObject player;
+    public GameObject g_scythe;
     public Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour
       {
           rb.velocity = new Vector2(xWallForce * -moveInput, yWallForce);
       }
+      
       Slide();
     }
     // Update is called once per frame
@@ -65,7 +69,7 @@ public class Player : MonoBehaviour
     {
       Run();
       Jump();
-      if (Input.GetKeyDown(KeyCode.Z) && wallSliding)
+      if (Input.GetKeyDown(KeyCode.Space) && wallSliding)
       {
           wallJumping = true;
           Invoke(nameof(setWallJumpToFalse), wallJumpTime); //Get the Name
@@ -74,8 +78,8 @@ public class Player : MonoBehaviour
 
     void Run()
     {
-      left = Input.GetKey(KeyCode.LeftArrow);
-      right = Input.GetKey(KeyCode.RightArrow);
+      left = Input.GetKey(KeyCode.A);
+      right = Input.GetKey(KeyCode.D);
 
       if(left && !right)
       {
@@ -130,7 +134,7 @@ public class Player : MonoBehaviour
        }
 
        pressedJump -= Time.deltaTime;
-       if (Input.GetKeyDown(KeyCode.Z))
+       if (Input.GetKeyDown(KeyCode.Space))
        {
            pressedJump = pressedJumpTime;
            anim.SetBool("isJumping", true);
@@ -149,7 +153,7 @@ public class Player : MonoBehaviour
                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
            }
 
-           if (Input.GetKeyUp(KeyCode.Z))
+           if (Input.GetKeyUp(KeyCode.Space))
            {
                if (rb.velocity.y > 0)
                {
